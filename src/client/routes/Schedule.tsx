@@ -5,7 +5,7 @@ import ScheduleTable from '../components/ScheduleTable';
 class Schedule extends React.Component<any, any> {
   render() {
     // Today changed at the start of each day
-    var today = 'Friday';
+    var today = 'Saturday';
     var days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     // Events to be filled with latest
     var events = {
@@ -80,8 +80,7 @@ class Schedule extends React.Component<any, any> {
             return (
               <li key={day} className={(day == today) ? "uk-open" : ""}>
                 <a className="uk-accordion-title" href="#">
-                  {day + " "}
-                  {(day == today) ? <span className="uk-label uk-label-warning">today</span> : ""}
+                  {day}
                 </a>
                 <div className="uk-accordion-content"><ScheduleTable events={events[day]} /></div>
               </li>
