@@ -34,10 +34,6 @@ class Documentation extends React.Component<any, any> {
         <table className="uk-table uk-table-small uk-table-responsive uk-table-middle">
           <tbody>
             <tr>
-              <td>Names, members, and descriptions of all workshop teams</td>
-              <td className="limit-width"><a className="uk-button uk-button-primary document-button" href="https://docs.google.com/document/d/1fpsN_GjN3AvPcR5qCf06SAV7nBPgri8ivdW7WiVSiaQ/edit?usp=sharing">Teams</a></td>
-            </tr>
-            <tr>
               <td>Slides from all teams' pitch presentations on Friday</td>
               <td className="limit-width"><a className="uk-button uk-button-primary document-button" href="https://drive.google.com/drive/folders/1m5PJBaLYNOXBypAeL2zh12tq4QHix2Sh?usp=sharing">Presentations</a></td>
             </tr>
@@ -48,10 +44,6 @@ class Documentation extends React.Component<any, any> {
             <tr>
               <td>Notes from from field interviews and NGO discussions</td>
               <td className="limit-width"><a className="uk-button uk-button-primary document-button" href="https://drive.google.com/drive/folders/1bMuOHSuXzpQQ0ZqPuP07GCTaGuRlmMSq?usp=sharing">NGO Field Visits</a></td>
-            </tr>
-            <tr>
-              <td>Anonymous feedback on the workshop overall</td>
-              <td className="limit-width"><a className="uk-button uk-button-primary document-button" href="https://docs.google.com/forms/d/e/1FAIpQLSc4o4pkAbTFvsgwbTq56DGU1QzR36JMXqdbEKIIppfdO2gSNA/viewform">Feedback</a></td>
             </tr>
           </tbody>
         </table>
