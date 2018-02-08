@@ -25,25 +25,24 @@ class PortfolioPage extends React.Component<any, any> {
   }
   
   updateState(name) {
-    $.get('/teamfolders').then((folders) => {      
-      $.get('/md/' + name.toLowerCase() + '.md').then((markdown) => {
-        $.get('/desc/' + name.toLowerCase() + '.txt').then((description) => {
-          $.get('/imagelinks?name=' + name.toLowerCase()).then((imageLinks) => {
-            if (markdown.startsWith('<!DOCTYPE html>')) markdown = '';
-            if (description.startsWith('<!DOCTYPE html>')) description = '';
-            
-            var folderLink = folders.filter((folder) => {
-              return (folder[0].toLowerCase() == name.toLowerCase());
-            })[0][1];
-                    
-            this.setState({
-              'name': name,
-              'description': description,
-              'markdown': markdown,
-              'folderLink': folderLink,
-              'imageLinks': imageLinks,
-              'editing': false
-            });
+    if (!name) return;
+    $.get('dist/data.json').then((data) => {
+      $.get('assets/md/' + name.toLowerCase() + '.md').then((markdown) => {
+        $.get('assets/desc/' + name.toLowerCase() + '.txt').then((description) => {
+          var imageLinks = data['images'][name];
+
+          if (markdown.startsWith('<!DOCTYPE html>')) markdown = '';
+          if (description.startsWith('<!DOCTYPE html>')) description = '';
+          
+          var folderLink = data['folders'][name];
+                  
+          this.setState({
+            'name': name,
+            'description': description,
+            'markdown': markdown,
+            'folderLink': folderLink,
+            'imageLinks': imageLinks,
+            'editing': false
           });
         });
       });

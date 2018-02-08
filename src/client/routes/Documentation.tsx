@@ -7,6 +7,7 @@ class Documentation extends React.Component<any, any> {
     super(props);
     
     this.state = { 
+      'teams': [],
       'folders': [],
       'folderName': ''
     };
@@ -14,21 +15,16 @@ class Documentation extends React.Component<any, any> {
   
   
   componentWillMount() {
-    $.get('/teamfolders').then((folders) => {
-      this.setState({'folders': folders})
+    $.get('dist/data.json').then((data) => {
+      this.setState({
+        'teams': data['teams'],
+        'folders': data['folders']
+      })
     });
   }
   
   handleChange(e) {
     this.setState({'folderName': e.target.value});
-  }
-  
-  handleClick() {
-    $.post('/teamfolder', {'name': this.state.folderName}).then((response) => {
-      setTimeout(() => {
-        this.componentWillMount();
-      }, 500);
-    });
   }
   
   render() {
@@ -70,19 +66,12 @@ class Documentation extends React.Component<any, any> {
         <h3 className="uk-heading-divider">Team Folders</h3>
         <div>
           <div className="folder-button-container">
-            {this.state.folders.map((folder) => {
+            {this.state.teams.map((team) => {
               return (
-                <a key={folder[0]} className="uk-button uk-button-primary folder-button" href={folder[1]}>{folder[0]}</a>
+                <a key={team} className="uk-button uk-button-primary folder-button" href={this.state.folders[team]}>{team}</a>
               );
             })}
           </div>
-        </div>
-        
-        <h3 className="uk-heading-divider">New Folder</h3>
-        <div>Create a new folder if your team doesn't have a folder yet:</div>
-        <div className="small-spacer"></div>
-        <div>
-          <input className="team-name-input uk-input uk-form-width-large" type="text" placeholder="Enter team name..." onChange={this.handleChange.bind(this)} value={this.state.folderName}/> <button className="team-name-input uk-button uk-button-primary" onClick={this.handleClick.bind(this)}>Create Team Folder</button>
         </div>
       </div>
     );

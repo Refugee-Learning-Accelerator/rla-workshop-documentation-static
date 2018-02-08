@@ -18,11 +18,11 @@ class Portfolios extends React.Component<any, any> {
   
   
   componentWillMount() {
-    $.get('/teamfolders').then((folders) => {
-      var teamNames = folders.map((folder) => { return folder[0]; });
+    $.get('dist/data.json').then((data) => {
+      var teamNames = data['teams'];
       var teamDescriptions = {};
       teamNames.forEach((name) => {
-        $.get('/desc/' + name.toLowerCase() + '.txt').then((description) => {
+        $.get('assets/desc/' + name.toLowerCase() + '.txt').then((description) => {
           if (description.startsWith('<!DOCTYPE html>')) description = '';
           teamDescriptions[name] = description;
           if (Object.keys(teamDescriptions).length == teamNames.length) {

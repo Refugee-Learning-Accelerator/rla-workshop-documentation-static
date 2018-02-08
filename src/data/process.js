@@ -14,7 +14,7 @@ for (var i = 0; i < teams.length; i++) {
   images[teams[i]] = files.filter((file) => {
     return clean(file).startsWith(clean(teams[i]));
   }).map((file) => {
-    return '/img/' + file;
+    return 'assets/img/' + file;
   });  
 }
   

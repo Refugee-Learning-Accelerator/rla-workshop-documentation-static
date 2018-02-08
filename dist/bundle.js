@@ -29952,11 +29952,11 @@ class Portfolios extends React.Component {
         };
     }
     componentWillMount() {
-        $.get('/teamfolders').then((folders) => {
-            var teamNames = folders.map((folder) => { return folder[0]; });
+        $.get('dist/data.json').then((data) => {
+            var teamNames = data['teams'];
             var teamDescriptions = {};
             teamNames.forEach((name) => {
-                $.get('/desc/' + name.toLowerCase() + '.txt').then((description) => {
+                $.get('assets/desc/' + name.toLowerCase() + '.txt').then((description) => {
                     if (description.startsWith('<!DOCTYPE html>'))
                         description = '';
                     teamDescriptions[name] = description;
@@ -30018,25 +30018,24 @@ class PortfolioPage extends React.Component {
         this.updateState(nextProps.name);
     }
     updateState(name) {
-        $.get('/teamfolders').then((folders) => {
-            $.get('/md/' + name.toLowerCase() + '.md').then((markdown) => {
-                $.get('/desc/' + name.toLowerCase() + '.txt').then((description) => {
-                    $.get('/imagelinks?name=' + name.toLowerCase()).then((imageLinks) => {
-                        if (markdown.startsWith('<!DOCTYPE html>'))
-                            markdown = '';
-                        if (description.startsWith('<!DOCTYPE html>'))
-                            description = '';
-                        var folderLink = folders.filter((folder) => {
-                            return (folder[0].toLowerCase() == name.toLowerCase());
-                        })[0][1];
-                        this.setState({
-                            'name': name,
-                            'description': description,
-                            'markdown': markdown,
-                            'folderLink': folderLink,
-                            'imageLinks': imageLinks,
-                            'editing': false
-                        });
+        if (!name)
+            return;
+        $.get('dist/data.json').then((data) => {
+            $.get('assets/md/' + name.toLowerCase() + '.md').then((markdown) => {
+                $.get('assets/desc/' + name.toLowerCase() + '.txt').then((description) => {
+                    var imageLinks = data['images'][name];
+                    if (markdown.startsWith('<!DOCTYPE html>'))
+                        markdown = '';
+                    if (description.startsWith('<!DOCTYPE html>'))
+                        description = '';
+                    var folderLink = data['folders'][name];
+                    this.setState({
+                        'name': name,
+                        'description': description,
+                        'markdown': markdown,
+                        'folderLink': folderLink,
+                        'imageLinks': imageLinks,
+                        'editing': false
                     });
                 });
             });
@@ -38048,24 +38047,21 @@ class Documentation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            'teams': [],
             'folders': [],
             'folderName': ''
         };
     }
     componentWillMount() {
-        $.get('/teamfolders').then((folders) => {
-            this.setState({ 'folders': folders });
+        $.get('dist/data.json').then((data) => {
+            this.setState({
+                'teams': data['teams'],
+                'folders': data['folders']
+            });
         });
     }
     handleChange(e) {
         this.setState({ 'folderName': e.target.value });
-    }
-    handleClick() {
-        $.post('/teamfolder', { 'name': this.state.folderName }).then((response) => {
-            setTimeout(() => {
-                this.componentWillMount();
-            }, 500);
-        });
     }
     render() {
         return (React.createElement("div", { className: "uk-padding uk-section uk-section-secondary page-content" },
@@ -38103,16 +38099,9 @@ class Documentation extends React.Component {
                 React.createElement("a", { className: "uk-button uk-button-primary photos-button", href: "https://drive.google.com/drive/folders/1xUVIgWBOdj5GUI9s0gb9a7GFR0yiZ91N?usp=sharing" }, "Google Drive")),
             React.createElement("h3", { className: "uk-heading-divider" }, "Team Folders"),
             React.createElement("div", null,
-                React.createElement("div", { className: "folder-button-container" }, this.state.folders.map((folder) => {
-                    return (React.createElement("a", { key: folder[0], className: "uk-button uk-button-primary folder-button", href: folder[1] }, folder[0]));
-                }))),
-            React.createElement("h3", { className: "uk-heading-divider" }, "New Folder"),
-            React.createElement("div", null, "Create a new folder if your team doesn't have a folder yet:"),
-            React.createElement("div", { className: "small-spacer" }),
-            React.createElement("div", null,
-                React.createElement("input", { className: "team-name-input uk-input uk-form-width-large", type: "text", placeholder: "Enter team name...", onChange: this.handleChange.bind(this), value: this.state.folderName }),
-                " ",
-                React.createElement("button", { className: "team-name-input uk-button uk-button-primary", onClick: this.handleClick.bind(this) }, "Create Team Folder"))));
+                React.createElement("div", { className: "folder-button-container" }, this.state.teams.map((team) => {
+                    return (React.createElement("a", { key: team, className: "uk-button uk-button-primary folder-button", href: this.state.folders[team] }, team));
+                })))));
     }
 }
 exports.default = Documentation;

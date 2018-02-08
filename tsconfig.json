@@ -4,8 +4,5 @@
         "allowJs": true,
         "target": "es2017",
         "jsx": "react"
-    },
-    "include": [
-        "server/src/**/*"
-    ]
+    }
 }
