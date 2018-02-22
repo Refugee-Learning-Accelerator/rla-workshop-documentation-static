@@ -9076,3 +9076,7 @@ nav {
 
 .maintain-height {
   height: 34px; }
+
+.overview-tile {
+  width: 100%;
+  padding: 30px; }

@@ -45,15 +45,12 @@ class Documentation extends React.Component<any, any> {
               <td>Notes from from field interviews and NGO discussions</td>
               <td className="limit-width"><a className="uk-button uk-button-primary document-button" href="https://drive.google.com/drive/folders/1bMuOHSuXzpQQ0ZqPuP07GCTaGuRlmMSq?usp=sharing">NGO Field Visits</a></td>
             </tr>
+            <tr>
+              <td>Photos combined from all different sources</td>
+              <td className="limit-width"><a className="uk-button uk-button-primary document-button" href="https://drive.google.com/drive/folders/10uAdRUcUJyVPm9je7jzwhKWnumiA7SvJ?usp=sharing">All Photos</a></td>
+            </tr>
           </tbody>
         </table>
-        
-        <h3 className="uk-heading-divider">Photos</h3>
-        <div>
-          <div>Add your photos from throughout the week! Use your preferred method, we'll merge later.</div>
-          <div className="small-spacer"></div>
-          <a className="uk-button uk-button-primary photos-button" href="https://photos.app.goo.gl/2g2icneiD2ZRBMmD2">Google Photos</a> <a className="uk-button uk-button-primary photos-button" href="https://docs.google.com/forms/d/e/1FAIpQLSdYlIOzqfRZ-w5_i0P7V6CCv-D6GCsmIDhTLIIMMQW2Kou3BA/viewform">iCloud Photos</a> <a className="uk-button uk-button-primary photos-button" href="https://drive.google.com/drive/folders/1xUVIgWBOdj5GUI9s0gb9a7GFR0yiZ91N?usp=sharing">Google Drive</a>
-        </div>
       
         <h3 className="uk-heading-divider">Team Folders</h3>
         <div>

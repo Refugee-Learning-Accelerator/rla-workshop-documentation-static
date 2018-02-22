@@ -29976,6 +29976,7 @@ class Portfolios extends React.Component {
     render() {
         return (React.createElement("div", { className: "page-content uk-background-muted", onKeyDown: (e) => { if (e.keyCode == 27)
                 this.componentWillMount(); } },
+            React.createElement("div", { className: "uk-tile uk-tile-secondary overview-tile" }, "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
             React.createElement("div", { className: "portfolio-tile-container" }, this.state.teamNames.map((name) => {
                 return (React.createElement("div", { key: name, className: "portfolio-tile uk-tile uk-tile-secondary", "uk-toggle": "target: #portfolio-modal", onClick: () => { this.setState({ 'currentName': name }); } },
                     React.createElement("h3", null, name),
@@ -38079,16 +38080,11 @@ class Documentation extends React.Component {
                     React.createElement("tr", null,
                         React.createElement("td", null, "Notes from from field interviews and NGO discussions"),
                         React.createElement("td", { className: "limit-width" },
-                            React.createElement("a", { className: "uk-button uk-button-primary document-button", href: "https://drive.google.com/drive/folders/1bMuOHSuXzpQQ0ZqPuP07GCTaGuRlmMSq?usp=sharing" }, "NGO Field Visits"))))),
-            React.createElement("h3", { className: "uk-heading-divider" }, "Photos"),
-            React.createElement("div", null,
-                React.createElement("div", null, "Add your photos from throughout the week! Use your preferred method, we'll merge later."),
-                React.createElement("div", { className: "small-spacer" }),
-                React.createElement("a", { className: "uk-button uk-button-primary photos-button", href: "https://photos.app.goo.gl/2g2icneiD2ZRBMmD2" }, "Google Photos"),
-                " ",
-                React.createElement("a", { className: "uk-button uk-button-primary photos-button", href: "https://docs.google.com/forms/d/e/1FAIpQLSdYlIOzqfRZ-w5_i0P7V6CCv-D6GCsmIDhTLIIMMQW2Kou3BA/viewform" }, "iCloud Photos"),
-                " ",
-                React.createElement("a", { className: "uk-button uk-button-primary photos-button", href: "https://drive.google.com/drive/folders/1xUVIgWBOdj5GUI9s0gb9a7GFR0yiZ91N?usp=sharing" }, "Google Drive")),
+                            React.createElement("a", { className: "uk-button uk-button-primary document-button", href: "https://drive.google.com/drive/folders/1bMuOHSuXzpQQ0ZqPuP07GCTaGuRlmMSq?usp=sharing" }, "NGO Field Visits"))),
+                    React.createElement("tr", null,
+                        React.createElement("td", null, "Photos combined from all different sources"),
+                        React.createElement("td", { className: "limit-width" },
+                            React.createElement("a", { className: "uk-button uk-button-primary document-button", href: "https://drive.google.com/drive/folders/10uAdRUcUJyVPm9je7jzwhKWnumiA7SvJ?usp=sharing" }, "All Photos"))))),
             React.createElement("h3", { className: "uk-heading-divider" }, "Team Folders"),
             React.createElement("div", null,
                 React.createElement("div", { className: "folder-button-container" }, this.state.teams.map((team) => {
