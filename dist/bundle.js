@@ -29976,7 +29976,13 @@ class Portfolios extends React.Component {
     render() {
         return (React.createElement("div", { className: "page-content uk-background-muted", onKeyDown: (e) => { if (e.keyCode == 27)
                 this.componentWillMount(); } },
-            React.createElement("div", { className: "uk-tile uk-tile-secondary overview-tile" }, "Fourteen teams which had shown the greatest progress and had the promise to take their ideas further, were invited to a workshop in Amman, Jordan. Over the course of eight days, teams visited NGOs, discussed their ideas with experts, participated in seminars, built preliminary prototypes, and pitched their project to a panel of guests and their peers. The focus was on identifying a specific problem and finding an appropriate solution. We emphasized collaboration and community over competition."),
+            React.createElement("div", { className: "uk-tile uk-tile-secondary overview-tile" },
+                "This workshop occurred in January 2018. These materials are archived. You can learn more about the Refugee Learning Accelerator ",
+                React.createElement("a", { target: "_blank", href: "http://refugeelearning.media.mit.edu/" }, "here"),
+                ".",
+                React.createElement("br", null),
+                React.createElement("br", null),
+                "Fourteen teams which had shown the greatest progress and had the promise to take their ideas further, were invited to a workshop in Amman, Jordan. Over the course of eight days, teams visited NGOs, discussed their ideas with experts, participated in seminars, built preliminary prototypes, and pitched their project to a panel of guests and their peers. The focus was on identifying a specific problem and finding an appropriate solution. We emphasized collaboration and community over competition."),
             React.createElement("div", { className: "portfolio-tile-container" }, this.state.teamNames.map((name) => {
                 return (React.createElement("div", { key: name, className: "portfolio-tile uk-tile uk-tile-secondary", "uk-toggle": "target: #portfolio-modal", onClick: () => { this.setState({ 'currentName': name }); } },
                     React.createElement("h3", null, name),
@@ -38066,7 +38072,6 @@ class Documentation extends React.Component {
     }
     render() {
         return (React.createElement("div", { className: "uk-padding uk-section uk-section-secondary page-content" },
-            React.createElement("h3", { className: "uk-heading-divider" }, "General Documents"),
             React.createElement("table", { className: "uk-table uk-table-small uk-table-responsive uk-table-middle" },
                 React.createElement("tbody", null,
                     React.createElement("tr", null,
@@ -38084,12 +38089,7 @@ class Documentation extends React.Component {
                     React.createElement("tr", null,
                         React.createElement("td", null, "Photos combined from all different sources"),
                         React.createElement("td", { className: "limit-width" },
-                            React.createElement("a", { className: "uk-button uk-button-primary document-button", href: "https://drive.google.com/drive/folders/10uAdRUcUJyVPm9je7jzwhKWnumiA7SvJ?usp=sharing" }, "All Photos"))))),
-            React.createElement("h3", { className: "uk-heading-divider" }, "Team Folders"),
-            React.createElement("div", null,
-                React.createElement("div", { className: "folder-button-container" }, this.state.teams.map((team) => {
-                    return (React.createElement("a", { key: team, className: "uk-button uk-button-primary folder-button", href: this.state.folders[team] }, team));
-                })))));
+                            React.createElement("a", { className: "uk-button uk-button-primary document-button", href: "https://drive.google.com/drive/folders/10uAdRUcUJyVPm9je7jzwhKWnumiA7SvJ?usp=sharing" }, "All Photos")))))));
     }
 }
 exports.default = Documentation;

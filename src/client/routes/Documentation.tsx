@@ -30,7 +30,7 @@ class Documentation extends React.Component<any, any> {
   render() {
     return (
       <div className="uk-padding uk-section uk-section-secondary page-content">        
-        <h3 className="uk-heading-divider">General Documents</h3>
+        {/* <h3 className="uk-heading-divider">General Documents</h3> */}
         <table className="uk-table uk-table-small uk-table-responsive uk-table-middle">
           <tbody>
             <tr>
@@ -52,7 +52,7 @@ class Documentation extends React.Component<any, any> {
           </tbody>
         </table>
       
-        <h3 className="uk-heading-divider">Team Folders</h3>
+        {/* <h3 className="uk-heading-divider">Team Folders</h3>
         <div>
           <div className="folder-button-container">
             {this.state.teams.map((team) => {
@@ -61,7 +61,7 @@ class Documentation extends React.Component<any, any> {
               );
             })}
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

@@ -47,6 +47,8 @@ class Portfolios extends React.Component<any, any> {
         className="page-content uk-background-muted" 
         onKeyDown={(e) => { if(e.keyCode == 27) this.componentWillMount() }}>
         <div className="uk-tile uk-tile-secondary overview-tile">
+        This workshop occurred in January 2018. These materials are archived. You can learn more about the Refugee Learning Accelerator <a target="_blank" href="http://refugeelearning.media.mit.edu/">here</a>.
+        <br /><br />
         Fourteen teams which had shown the greatest progress and had the promise to take their ideas further, were invited to a workshop in Amman, Jordan. Over the course of eight days, teams visited NGOs, discussed their ideas with experts, participated in seminars, built preliminary prototypes, and pitched their project to a panel of guests and their peers. The focus was on identifying a specific problem and finding an appropriate solution. We emphasized collaboration and community over competition.
         </div>
         <div className="portfolio-tile-container">
