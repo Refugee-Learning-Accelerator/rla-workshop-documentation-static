@@ -47,7 +47,7 @@ class Portfolios extends React.Component<any, any> {
         className="page-content uk-background-muted" 
         onKeyDown={(e) => { if(e.keyCode == 27) this.componentWillMount() }}>
         <div className="uk-tile uk-tile-secondary overview-tile">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        Fourteen teams which had shown the greatest progress and had the promise to take their ideas further, were invited to a workshop in Amman, Jordan. Over the course of eight days, teams visited NGOs, discussed their ideas with experts, participated in seminars, built preliminary prototypes, and pitched their project to a panel of guests and their peers. The focus was on identifying a specific problem and finding an appropriate solution. We emphasized collaboration and community over competition.
         </div>
         <div className="portfolio-tile-container">
           {this.state.teamNames.map((name) => {
